@@ -20,6 +20,7 @@
                 </ul>
             </div><br />
         @endif
+        <a href="{{ route('task.create')}}" class="btn btn-primary" style="">Create Task</a><br><br>
         <form method="post" action="{{ route('task.update', $tasks->id ) }}">
             <div class="form-group">
                 @csrf
