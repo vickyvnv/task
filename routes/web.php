@@ -19,6 +19,9 @@ Route::get('/', function () {
 }); 
 
 Route::resource('task', 'App\Http\Controllers\TaskCrudController');
+
+Route::post('task-sortable','App\Http\Controllers\TaskCrudController@change');
+
 //Route::get('/task', [TaskCrudController::class, 'index']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -30,6 +30,26 @@ class TaskCrudController extends Controller
     }
 
     /**
+     * Change a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function change(Request $request)
+    {
+        $tasks = Task::all();
+
+        foreach ($tasks as $task) {
+            foreach ($request->order as $order) {
+                if ($order['id'] == $task->id) {
+                    $task->update(['order' => $order['position']]);
+                }
+            }
+        }
+        
+        return response('Update Successfully.', 200);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
