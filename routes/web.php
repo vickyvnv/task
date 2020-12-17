@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 }); 
 
+Route::resource('project', 'App\Http\Controllers\ProjectController');
+
 Route::resource('task', 'App\Http\Controllers\TaskCrudController');
+
 
 Route::post('task-sortable','App\Http\Controllers\TaskCrudController@change');
 
